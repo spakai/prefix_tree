@@ -17,5 +17,4 @@ TEST_F(PrefixTreeTest, InsertWord) {
     std::string word = "apple";
     preTree.insert(word);
     ASSERT_THAT(preTree.getRoot()->child[0]->c,Eq('a'));
-
 }
