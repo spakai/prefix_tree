@@ -7,3 +7,7 @@ PrefixTree::PrefixTree() {
 Node* PrefixTree::getRoot() {
     return root;
 }
+
+void PrefixTree::insert(std::string & word) {
+    
+}

@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 
 struct Node {
     char c;
@@ -8,15 +9,14 @@ struct Node {
         for(int i{0}; i < n; i++) {
             child.push_back(nullptr);
         }
-
     }
 };
-
 
 class PrefixTree {
     public:
         PrefixTree();
         Node* getRoot();
+        void insert(std::string & word);
     private:
         Node *root;    
 };
