@@ -22,6 +22,8 @@ void PrefixTree::insert(std::string & word) {
             currentNode = currentNode->child[index];
         }      
     }
+
+    currentNode->word=word;
 }
 
 std::string PrefixTree::search(std::string & word) {
@@ -35,6 +37,6 @@ std::string PrefixTree::search(std::string & word) {
             currentNode = currentNode->child[index];
         }
     }
-    return std::string("FOUND");
+    return currentNode->word;
 
 } 

@@ -3,6 +3,7 @@
 
 struct Node {
     char c;
+    std::string word;
     std::vector<Node*> child;
     Node(int n) {
         for(int i{0}; i < n; i++) {

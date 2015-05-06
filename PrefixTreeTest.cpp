@@ -54,7 +54,7 @@ TEST_F(PrefixTreeTest, SearchForAWordThatExists) {
     preTree.insert(word1);
     preTree.insert(word2);
     std::string result = preTree.search(word2);
-    ASSERT_THAT(result, StrEq("FOUND"));
+    ASSERT_THAT(result, StrEq(word2));
 }
 
 TEST_F(PrefixTreeTest, SearchForAWordThatDoesntExist) {
