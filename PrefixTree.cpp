@@ -28,15 +28,17 @@ void PrefixTree::insert(std::string & word) {
 
 std::string PrefixTree::search(std::string & word) {
     int index{0};
+    std::string longestPrefix;
     Node* currentNode = root;
     for(auto it=word.begin(); it!=word.end();it++) {
         index = (int)(*it - 'a');  
         if(currentNode->child[index] == nullptr) {
-            return std::string("NOT_FOUND"); 
+            break;
         } else {
             currentNode = currentNode->child[index];
+            longestPrefix=currentNode->word;
         }
     }
-    return currentNode->word;
-
+    
+    return longestPrefix;
 } 
