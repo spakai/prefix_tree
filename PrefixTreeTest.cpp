@@ -64,7 +64,7 @@ TEST_F(PrefixTreeTest, SearchForAWordThatDoesntExist) {
     preTree.insert(word1);
     preTree.insert(word2);
     std::string result = preTree.search(word3);
-    ASSERT_THAT(result, StrEq("NOT_FOUND"));
+    ASSERT_THAT(result, StrEq(""));
 }
 
 TEST_F(PrefixTreeTest, SearchReturnsLongestPrefixFound) {
