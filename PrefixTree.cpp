@@ -4,6 +4,10 @@ PrefixTree::PrefixTree() {
     root = new Node(26);
 }
 
+PrefixTree::~PrefixTree() {
+    delete root;
+}
+
 Node* PrefixTree::getRoot() {
     return root;
 }
