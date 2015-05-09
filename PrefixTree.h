@@ -27,8 +27,13 @@ class PrefixTree {
         PrefixTree();
         ~PrefixTree();
         Node* getRoot();
+        bool isNodeAvailable(int index);
         void insert(std::string & word);
         std::string search(std::string & word);
     private:
-        Node *root;    
+        Node *root;   
+        bool NodeDoesNotExist(Node* currentNode, int index);
+        void CreateAndAssignValue(Node* currentNode, int index, char value); 
+        void MoveToNode(Node* currentNode, int index);
+ 
 };

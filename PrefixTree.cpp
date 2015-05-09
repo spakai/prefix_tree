@@ -12,18 +12,35 @@ Node* PrefixTree::getRoot() {
     return root;
 }
 
+bool PrefixTree::NodeDoesNotExist(Node* currentNode, int index) {
+    if(currentNode->child[index] == nullptr) {
+        return true;
+    } 
+
+    return false;
+} 
+
+void PrefixTree::CreateAndAssignValue(Node* currentNode, int index, char value) {
+    currentNode->child[index] = new Node(26);
+    currentNode->child[index]->c = value;
+}
+
+void PrefixTree::MoveToNode(Node* currentNode, int index) {
+    currentNode = currentNode->child[index];
+}
+
 void PrefixTree::insert(std::string & word) {
     int index{0};
     Node* currentNode = root;
 
     for(auto it=word.begin(); it!=word.end();it++) {
         index = (int)(*it - 'a');  
-        if(currentNode->child[index] == nullptr) {
-            currentNode->child[index] = new Node(26);
-            currentNode->child[index]->c = *it;
-            currentNode = currentNode->child[index];
+        if(NodeDoesNotExist(currentNode, index)) {
+            char value = (char) *it;
+            CreateAndAssignValue(currentNode, index, value);
+            MoveToNode(currentNode, index);
         } else {
-            currentNode = currentNode->child[index];
+            MoveToNode(currentNode, index);
         }      
     }
 
