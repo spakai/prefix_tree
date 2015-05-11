@@ -20,13 +20,10 @@ bool PrefixTree::NodeDoesNotExist(Node* node) {
     return false;
 } 
 
-void PrefixTree::CreateAndAssignValue(Node* node, int index, char value) {
-    node->child[index] = new Node(26);
-    node->child[index]->c = value;
-}
-
-void PrefixTree::MoveNode(Node* currentNode, int index) {
-    currentNode = currentNode->child[index];
+Node* PrefixTree::CreateAndAssignValue(Node * node, char value) {
+    node = new Node(26);
+    node->c = value;
+    return node;
 }
 
 void PrefixTree::insert(std::string & word) {
@@ -36,7 +33,7 @@ void PrefixTree::insert(std::string & word) {
     for(auto it=word.begin(); it!=word.end();it++) {
         index = (int)(*it - 'a');  
         if(NodeDoesNotExist(currentNode->child[index])) {
-            CreateAndAssignValue(currentNode,index,*it);
+            currentNode->child[index] = CreateAndAssignValue(currentNode->child[index],*it);
             currentNode = currentNode->child[index];
         } else {
             currentNode = currentNode->child[index];
