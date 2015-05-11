@@ -32,8 +32,8 @@ class PrefixTree {
         std::string search(std::string & word);
     private:
         Node *root;   
-        bool NodeDoesNotExist(Node* currentNode, int index);
+        bool NodeDoesNotExist(Node* currentNode);
         void CreateAndAssignValue(Node* currentNode, int index, char value); 
-        void MoveToNode(Node* currentNode, int index);
+        void MoveNode(Node* currentNode, int index);
  
 };
