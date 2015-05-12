@@ -41,7 +41,7 @@ TEST_F(PrefixTreeTest, DISABLED_InsertWord) {
     ASSERT_THAT(currentNode->child[index]->chr,Eq('e'));
 }
 
-TEST_F(PrefixTreeTest, DISABLED_InsertWordThatPartlyReusesPreviousWordNode) {
+TEST_F(PrefixTreeTest, InsertWordThatPartlyReusesPreviousWordNode) {
     int index;
     preTree.insert(apple);
     preTree.insert(ape);
@@ -51,8 +51,6 @@ TEST_F(PrefixTreeTest, DISABLED_InsertWordThatPartlyReusesPreviousWordNode) {
     currentNode = moveNodeTo(currentNode, index);
     
     index = preTree.determineIndex('p');
-    currentNode = moveNodeTo(currentNode, index);
- 
     ASSERT_THAT(currentNode->child[index]->chr,Eq('p'));
     currentNode = moveNodeTo(currentNode, index);
  
