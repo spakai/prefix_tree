@@ -2,7 +2,7 @@
 #include <string>
 
 struct Node {
-    char c;
+    char chr;
     std::string word;
     std::vector<Node*> child;
     int numberOfNodes;
@@ -31,7 +31,7 @@ class PrefixTree {
         std::string search(std::string & word);
     private:
         Node *root;   
-        bool NodeDoesNotExist(Node* currentNode);
-        Node* AllocateMemoryAndAssignValue(Node * currentNode, char value); 
-        int DetermineIndex(char value);
+        bool nodeDoesNotExist(Node* currentNode);
+        Node* allocateMemoryAndAssignValue(Node * currentNode, char value); 
+        int determineIndex(char value);
 };

@@ -18,18 +18,18 @@ TEST_F(PrefixTreeTest, InsertWord) {
     std::string word = "apple";
     preTree.insert(word);
     Node* currentNode = preTree.getRoot();
-    ASSERT_THAT(currentNode->child[0]->c,Eq('a'));
+    ASSERT_THAT(currentNode->child[0]->chr,Eq('a'));
     index = (int)('p' - 'a');
     currentNode= currentNode->child[0];
-    ASSERT_THAT(currentNode->child[index]->c,Eq('p'));
+    ASSERT_THAT(currentNode->child[index]->chr,Eq('p'));
     currentNode= currentNode->child[index];
-    ASSERT_THAT(currentNode->child[index]->c,Eq('p'));
+    ASSERT_THAT(currentNode->child[index]->chr,Eq('p'));
     currentNode= currentNode->child[index];
     index = (int)('l' - 'a');
-    ASSERT_THAT(currentNode->child[index]->c,Eq('l'));
+    ASSERT_THAT(currentNode->child[index]->chr,Eq('l'));
     currentNode= currentNode->child[index];
     index = (int)('e' - 'a');
-    ASSERT_THAT(currentNode->child[index]->c,Eq('e'));
+    ASSERT_THAT(currentNode->child[index]->chr,Eq('e'));
 }
 
 TEST_F(PrefixTreeTest, InsertWordThatPartlyReusesPreviousWordNode) {
@@ -39,13 +39,13 @@ TEST_F(PrefixTreeTest, InsertWordThatPartlyReusesPreviousWordNode) {
     std::string word2 = "ape";
     preTree.insert(word2);
     Node* currentNode = preTree.getRoot();
-    ASSERT_THAT(currentNode->child[0]->c,Eq('a'));
+    ASSERT_THAT(currentNode->child[0]->chr,Eq('a'));
     index = (int)('p' - 'a');
     currentNode= currentNode->child[0];
-    ASSERT_THAT(currentNode->child[index]->c,Eq('p'));
+    ASSERT_THAT(currentNode->child[index]->chr,Eq('p'));
     currentNode= currentNode->child[index];
     index = (int)('e' - 'a');
-    ASSERT_THAT(currentNode->child[index]->c,Eq('e'));
+    ASSERT_THAT(currentNode->child[index]->chr,Eq('e'));
 }
 
 TEST_F(PrefixTreeTest, SearchForAWordThatExists) {
