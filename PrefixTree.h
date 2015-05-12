@@ -30,10 +30,11 @@ class PrefixTree {
         Node* getRoot();
         void insert(std::string & word);
         std::string search(std::string & word);
+        int determineIndex(char value);
+
     private:
         Node *root;   
         std::unordered_map<char, int> charToIndexMap;
         bool nodeDoesNotExist(Node* currentNode);
         Node* allocateMemoryAndAssignValue(Node * currentNode, char value); 
-        int determineIndex(char value);
 };
