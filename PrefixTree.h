@@ -32,5 +32,6 @@ class PrefixTree {
     private:
         Node *root;   
         bool NodeDoesNotExist(Node* currentNode);
-        Node* CreateAndAssignValue(Node * currentNode, char value); 
+        Node* AllocateMemoryAndAssignValue(Node * currentNode, char value); 
+        int DetermineIndex(char value);
 };

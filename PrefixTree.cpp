@@ -12,6 +12,10 @@ Node* PrefixTree::getRoot() {
     return root;
 }
 
+int PrefixTree::DetermineIndex(char value) {
+    return (int) (value - 'a');    
+}
+
 bool PrefixTree::NodeDoesNotExist(Node* node) {
     if(node == nullptr) {
         return true;
@@ -20,7 +24,7 @@ bool PrefixTree::NodeDoesNotExist(Node* node) {
     return false;
 } 
 
-Node* PrefixTree::CreateAndAssignValue(Node * node, char value) {
+Node* PrefixTree::AllocateMemoryAndAssignValue(Node * node, char value) {
     node = new Node(26);
     node->c = value;
     return node;
@@ -31,9 +35,9 @@ void PrefixTree::insert(std::string & word) {
     Node* currentNode = root;
 
     for(auto it=word.begin(); it!=word.end();it++) {
-        index = (int)(*it - 'a');  
+        index = DetermineIndex(*it);
         if(NodeDoesNotExist(currentNode->child[index])) {
-            currentNode->child[index] = CreateAndAssignValue(currentNode->child[index],*it);
+            currentNode->child[index] = AllocateMemoryAndAssignValue(currentNode->child[index],*it);
             currentNode = currentNode->child[index];
         } else {
             currentNode = currentNode->child[index];
@@ -48,12 +52,15 @@ std::string PrefixTree::search(std::string & word) {
     std::string longestPrefix;
     Node* currentNode = root;
     for(auto it=word.begin(); it!=word.end();it++) {
-        index = (int)(*it - 'a');  
+        index = DetermineIndex(*it);
         if(NodeDoesNotExist(currentNode->child[index])) {
             break;
         } else {
             currentNode = currentNode->child[index];
-            longestPrefix=currentNode->word;
+
+            if(! currentNode->word.empty()) {
+                longestPrefix=currentNode->word;
+            }
         }
     }
     
