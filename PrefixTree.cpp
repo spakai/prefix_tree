@@ -1,13 +1,17 @@
 #include "PrefixTree.h"
 
 PrefixTree::PrefixTree() {
-    root = new Node(26);
+    root = new Node();
+    loadMapping();
+}
 
+
+void PrefixTree::loadMapping() {
     std::string chars="abcdefghijklmnopqrstuvwxyz";
     int i{0};
     for(auto it=chars.begin(); it != chars.end(); it++) {
         charToIndexMap.emplace(*it, i++);        
-    }     
+    } 
 }
 
 PrefixTree::~PrefixTree() {
@@ -32,7 +36,7 @@ bool PrefixTree::nodeDoesNotExist(Node* node) {
 } 
 
 Node* PrefixTree::allocateMemoryAndAssignValue(Node * node, char value) {
-    node = new Node(26);
+    node = new Node();
     node->chr = value;
     return node;
 }
