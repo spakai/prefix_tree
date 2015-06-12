@@ -6,13 +6,18 @@ being sought.
 
 ##Motivation
 I want to determine the location of a landline number with longest prefix match which can also return an exact match.
+
 |Number | Location|
-|---    |---      |
-|60     |Malaysia |
-|6005   |Perak    |
-|60055  |Ipoh     |
-|6005527|Rishah   |
-|600528 |Silibin  |
+|---   |---      |
+|60    |Malaysia |
+|605   |Perak    |
+|6055  |Ipoh     |
+|605527|Rishah   |
+|605528|Silibin  |
+
+So if i have a number 6055286892 and i want to know it's longest prefix match , the program should return me the location = Silibin. The number 60354545454 will give me the location Malaysia. 
+
+
 
 ##Code Design
 A trie can be represented with the linked list. Here, we will represent a trie which stores the words starting with a particular character. Each node of a trie can be represented by the following structure.
