@@ -36,13 +36,15 @@ This way, the program doesn't need to keep track of individual characters it has
 
 
 The PrefixTree class uses the Node struct to do two things
--insert
-  1.word is broken into individual characters and stored in individual nodes. 
-  2.There are two paths in the insert node :
-    1.If the character does not already exist, memory is allocated and the character is assigned.
-    2.If the character already exists , then the code processes the next character of the word.
+###insert
 
--search
+The string is broken into individual characters and stored in individual nodes. 
+
+There are two paths in the insert node :
+If the character does not already exist, memory is allocated and the character is assigned.
+If the character already exists , then the code processes the next character of the word.
+
+###search
 
 
 ##Heap Memory Allocation and Deallocation
