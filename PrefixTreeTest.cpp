@@ -44,16 +44,15 @@ TEST_F(PrefixTreeTest, InsertWordThatPartlyReusesPreviousWordNode) {
 }
 
 TEST_F(PrefixTreeTest, SearchForAWordThatExists) {
-    std::string result = preTree.search(ape);
-    ASSERT_THAT(result, StrEq(ape));
+    auto result = preTree.search(ape);
+    ASSERT_THAT(*result, StrEq(ape));
 }
 
 TEST_F(PrefixTreeTest, SearchForAWordThatDoesntExist) {
-    std::string result = preTree.search(beta);
-    ASSERT_THAT(result, StrEq(""));
+    ASSERT_THROW(preTree.search(beta), std::out_of_range);
 }
 
 TEST_F(PrefixTreeTest, SearchReturnsLongestPrefixFound) {
-    std::string result = preTree.search(alphabet);
-    ASSERT_THAT(result, StrEq(alpha));
+    auto result = preTree.search(alphabet);
+    ASSERT_THAT(*result, StrEq(alpha));
 }

@@ -1,10 +1,12 @@
 #include <vector>
 #include <string>
 #include <unordered_map>
+#include <memory>
+#include <exception>
 
 struct Node {
     char chr;
-    std::string word;
+    std::shared_ptr<std::string> word;
     std::vector<Node*> child;
     int numberOfNodes;
 
@@ -30,7 +32,7 @@ class PrefixTree {
         void loadMapping();
         Node* getRoot();
         void insert(std::string & word);
-        std::string search(std::string & word);
+        std::shared_ptr<std::string> search(std::string & word);
         int determineIndex(char value);
 
     private:

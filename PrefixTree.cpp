@@ -53,13 +53,12 @@ void PrefixTree::insert(std::string & word) {
             currentNode = currentNode->child[index];
         }      
     }
-
-    currentNode->word=word;
+    currentNode->word = std::make_shared<std::string>(word);
 }
 
-std::string PrefixTree::search(std::string & word) {
+std::shared_ptr<std::string> PrefixTree::search(std::string & word) {
     int index{0};
-    std::string longestPrefix;
+    std::shared_ptr<std::string> longestPrefix;
     Node* currentNode = root;
     for(char & chr : word) {
         index = determineIndex(chr);
@@ -67,12 +66,13 @@ std::string PrefixTree::search(std::string & word) {
             break;
         } else {
             currentNode = currentNode->child[index];
-
-            if(! currentNode->word.empty()) {
-                longestPrefix=currentNode->word;
-            }
+            longestPrefix=currentNode->word;
         }
     }
-    
-    return longestPrefix;
+    if(longestPrefix != nullptr) {
+        return longestPrefix;
+    } else {
+        throw std::out_of_range("index out of range");
+    }
+
 } 
