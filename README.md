@@ -36,6 +36,7 @@ This way, the program doesn't need to keep track of individual characters it has
 
 
 The PrefixTree class uses the Node struct to do two things
+
 ###insert
 
 The string is broken into individual characters and stored in individual nodes. 
@@ -44,6 +45,7 @@ There are two paths in the insert node
 - If the character does not already exist, memory is allocated and the character is assigned.
 - If the character already exists , then the code processes the next character of the word.
 - If it is the last character of a word , the whole string is assigned to the word variable. 
+
 ###search
 
 This function find the best prefix match value. the string is again broken into individual characters and traversed thru the tree.
@@ -64,3 +66,8 @@ valgrind --tool=memcheck --leak-check=yes --show reachable=yes --num-callers=20 
 To generate code coverage report do the following:
 
 
+##Required software 
+- GTest
+- Valgrind
+- C++ 11 compiler
+- CMake
