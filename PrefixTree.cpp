@@ -44,11 +44,10 @@ Node* PrefixTree::allocateMemoryAndAssignValue(Node * node, char value) {
 void PrefixTree::insert(std::string & word) {
     int index{0};
     Node* currentNode = root;
-
-    for(auto it=word.begin(); it!=word.end();it++) {
-        index = determineIndex(*it);
+    for(char & chr : word) {
+        index = determineIndex(chr);
         if(nodeDoesNotExist(currentNode->child[index])) {
-            currentNode->child[index] = allocateMemoryAndAssignValue(currentNode->child[index],*it);
+            currentNode->child[index] = allocateMemoryAndAssignValue(currentNode->child[index], chr);
             currentNode = currentNode->child[index];
         } else {
             currentNode = currentNode->child[index];
@@ -62,8 +61,8 @@ std::string PrefixTree::search(std::string & word) {
     int index{0};
     std::string longestPrefix;
     Node* currentNode = root;
-    for(auto it=word.begin(); it!=word.end();it++) {
-        index = determineIndex(*it);
+    for(char & chr : word) {
+        index = determineIndex(chr);
         if(nodeDoesNotExist(currentNode->child[index])) {
             break;
         } else {
