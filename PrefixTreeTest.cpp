@@ -7,6 +7,7 @@ using namespace testing;
 class PrefixTreeTest : public Test {
     public:
         PrefixTree preTree;
+        std::string alp   = "alp";
         std::string apple = "apple";
         std::string ape   = "ape";
         std::string alpha = "alpha";
@@ -18,6 +19,7 @@ class PrefixTreeTest : public Test {
         }
 
         void SetUp() override {
+            preTree.insert(alp);
             preTree.insert(alpha);
             preTree.insert(apple);
             preTree.insert(ape);

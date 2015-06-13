@@ -5,12 +5,11 @@ PrefixTree::PrefixTree() {
     loadMapping();
 }
 
-
 void PrefixTree::loadMapping() {
     std::string chars="abcdefghijklmnopqrstuvwxyz";
     int i{0};
-    for(auto it=chars.begin(); it != chars.end(); it++) {
-        charToIndexMap.emplace(*it, i++);        
+    for(auto & chr : chars) {
+        charToIndexMap.emplace(chr, i++);        
     } 
 }
 
@@ -44,7 +43,7 @@ Node* PrefixTree::allocateMemoryAndAssignValue(Node * node, char value) {
 void PrefixTree::insert(std::string & word) {
     int index{0};
     Node* currentNode = root;
-    for(char & chr : word) {
+    for(auto & chr : word) {
         index = determineIndex(chr);
         if(nodeDoesNotExist(currentNode->child[index])) {
             currentNode->child[index] = allocateMemoryAndAssignValue(currentNode->child[index], chr);
@@ -60,7 +59,7 @@ std::shared_ptr<std::string> PrefixTree::search(std::string & word) {
     int index{0};
     std::shared_ptr<std::string> longestPrefix;
     Node* currentNode = root;
-    for(char & chr : word) {
+    for(auto & chr : word) {
         index = determineIndex(chr);
         if(nodeDoesNotExist(currentNode->child[index])) {
             break;
@@ -69,10 +68,10 @@ std::shared_ptr<std::string> PrefixTree::search(std::string & word) {
             longestPrefix=currentNode->word;
         }
     }
+
     if(longestPrefix != nullptr) {
         return longestPrefix;
     } else {
         throw std::out_of_range("index out of range");
     }
-
 } 
