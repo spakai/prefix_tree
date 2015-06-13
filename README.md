@@ -48,7 +48,7 @@ There are two paths in the insert node
 
 ###search
 
-This function find the best prefix match value. the string is again broken into individual characters and traversed thru the tree.
+This function finds the best prefix match value. The string is again broken into individual characters and traversed thru the tree.
 
 If the node where the expected character is empty, it breaks and returns the longest match prefix which could or could not be an exact match. 
 
