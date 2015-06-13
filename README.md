@@ -37,10 +37,25 @@ This way, the program doesn't need to keep track of individual characters it has
 
 The PrefixTree class uses the Node struct to do two things
 - insert
+A word is broken into individual characters and stored in individual nodes. 
+There are two paths in the insert node :
+- If the character does not already exist, memory is allocated and the character is assigned.
+- If the character already exists , then the code processes the next character of the word.
+- It uses the charToMap hash map to determine where a specific character should be stored .
+- 
 - search
 
 
 ##Heap Memory Allocation and Deallocation
+The PrefixTree class creates the root node on creation and deletes it during destruction.
+This will trigger a cascade destruction of the root's children which is handled by the Node's destructor.
 
+To check for memory leak I used the command 
+```
+valgrind --tool=memcheck --leak-check=yes --show reachable=yes --num-callers=20 --track-fds=yes ./test
+```
+
+##Code coverage
+To generate code coverage report do the following:
 
 
