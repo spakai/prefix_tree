@@ -35,4 +35,12 @@ Each node has one character assigned to it and if it is the last character of a 
 This way, the program doesn't need to keep track of individual characters it has traversed.
 
 
+The PrefixTree class uses the Node struct to do two things
+- insert
+- search
+
+
+##Heap Memory Allocation and Deallocation
+
+
 
