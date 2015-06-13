@@ -40,11 +40,15 @@ The PrefixTree class uses the Node struct to do two things
 
 The string is broken into individual characters and stored in individual nodes. 
 
-There are two paths in the insert node :
-If the character does not already exist, memory is allocated and the character is assigned.
-If the character already exists , then the code processes the next character of the word.
-
+There are two paths in the insert node
+- If the character does not already exist, memory is allocated and the character is assigned.
+- If the character already exists , then the code processes the next character of the word.
+- If it is the last character of a word , the whole string is assigned to the word variable. 
 ###search
+
+This function find the best prefix match value. the string is again broken into individual characters and traversed thru the tree.
+
+If the node where the expected character is empty, it breaks and returns the longest match prefix which could or could not be an exact match. 
 
 
 ##Heap Memory Allocation and Deallocation
